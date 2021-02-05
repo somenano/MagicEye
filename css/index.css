@@ -35,6 +35,9 @@
     left: 5px;
     color: white;
     border-radius: 10px;
+}
+
+.box-bg {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
@@ -45,7 +48,7 @@
 #cps-text {
     position: absolute;
     left: 15px;
-    bottom: 25px;
+    bottom: 15px;
 }
 
 a:link {

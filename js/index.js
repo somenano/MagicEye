@@ -147,7 +147,7 @@ function toggle_darkmode(force=undefined) {
         set_option('darkmode-enabled', false);
         $('a').css('color', '#000000');
         $('#menu').css('color', '#000000');
-        $('#menu').css('background-color', 'rgba(255, 255, 255, 0.4)');
+        $('.box-bg').css('background-color', 'rgba(255, 255, 255, 0.4)');
         $('body').css('color', '#000000');
         $('#nano-mark').attr("src","/images/nano-mark-dark.png");
         $('#darkmode-check').prop('checked', false);
@@ -156,7 +156,7 @@ function toggle_darkmode(force=undefined) {
         set_option('darkmode-enabled', true);
         $('a').css('color', '#ffffff');
         $('#menu').css('color', '#ffffff');
-        $('#menu').css('background-color', 'rgba(0, 0, 0, 0.4)');
+        $('.box-bg').css('background-color', 'rgba(0, 0, 0, 0.4)');
         $('body').css('color', '#ffffff');
         $('#nano-mark').attr("src","/images/nano-mark-light.png");
         $('#darkmode-check').prop('checked', true);
@@ -232,7 +232,7 @@ function update_stereogram() {
     let canvas = document.getElementById('canvas');
     let depthMapper = new MagicEye.CanvasDepthMapper(canvas);
     let off_color = [255, 255, 255, 255];
-    if (get_option('darkmode-enabled') == true) off_color = [0, 0, 0, 255];
+    if (get_option('darkmode-enabled') == true) off_color = [0, 0, 52, 255];
     MagicEye.render({
         el: 'magic-eye',
         depthMapper: depthMapper,
