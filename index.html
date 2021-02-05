@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <meta name="description" content="Rewind to the 90s with this unique Nano Network stereogram / Magic Eye visualizer. View real-time Nano transactions and confirmations per second.">
+    <meta name="nano" content="nano_1somenanerzdzdbyr4y6x996qbo764ifxk8beuhphydmwn1agpzkwquqqick" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>SomeNano Magic Eye</title>
+
+    <link rel="stylesheet" href="/css/switch.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/nano_font.css">
+
+</head>
+
+<body>
+
+    <div id="menu">
+        <table>
+            <tr>
+                <td rowspan="2" align="center"><a href="https://www.somenano.com" target="_new"><img src="/images/somenano.png" id="logo"></a></td>
+                <td><b>SomeNano Magic Eye</b></td>
+            </tr>
+            <tr>
+                <td>Every Nano mark (<img src="/images/nano-mark-light.png" id="nano-mark" height="15px">) is a fully confirmed <a href="https://www.nano.org" target="_new">Nano</a> transaction</td>
+            </tr>
+            <tr>
+                <td align="center"><a href="#" onclick="toggle_options();" id="options-arrow"><i class="fas fa-chevron-right"></i></span></td>
+                <td><a href="#" onclick="toggle_options();" id="options-link">Show more options...</a></td>
+            </tr>
+            <tr class="additional-option">
+                <td align="center">
+                    <label class="switch">
+                        <input type="checkbox" id="stereogram-check" onclick="toggle_stereogram();">
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+                <td>
+                    Stereogram is <span id="stereogram-enabled">enabled</span>
+                </td>
+            </tr>
+            <tr class="additional-option">
+                <td align="center">
+                    <label class="switch">
+                        <input type="checkbox" id="darkmode-check" onclick="toggle_darkmode();">
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+                <td>
+                    Dark mode is <span id="darkmode-enabled">disabled</span>
+                </td>
+            </tr>
+            <tr class="additional-option">
+                <td align="center">&nbsp;</td>
+                <td><a href="#" onclick="dec_fps();"><i class="fas fa-arrow-circle-left"></i></a>&nbsp;<span id="fps">5</span>&nbsp;<a href="#" onclick="inc_fps();"><i class="fas fa-arrow-circle-right"></i></a>&nbsp;Frames per second</td>
+            </tr>
+            <tr>
+                <td align="center"><i class="fas fa-question"></i></td>
+                <td><a href="#" onclick="toggle_info();" id="info-link">What am I looking at?</a></td>
+            </tr>
+            <tr class="info-option">
+                <td align="center">&nbsp;</td>
+                <td>
+                    <p>You are looking at a <a href="https://en.wikipedia.org/wiki/Autostereogram" target="_new">stereogram</a>!</p>
+                    <p>The <a href="https://nanocrawler.cc/network" target="_new">Nano Network</a>>a is monitored<br>in <a href="https://node.somenano.com" target="_new">real-time</a> and a new Nano mark<br>flies towards you with every<br>confirmed transaction.</p>
+                    <p>To see the image in a stereogram,<br>try to look beyond the image on<br>the screen and let your eyes relax.</p>
+                    <p>More viewing tips found <a href="https://www.magiceye.com/faq-items/help-how-do-i-see-in-3d/" target="_new">here</a>.</p>
+                    <p>This site is not associated with<br><a href="https://www.magiceye.com/" target="_new">Magic Eye Inc.</a></p>
+                    <p>Special thanks to <a href="https://github.com/peeinears/MagicEye.js" target="_new">MagicEye.js</a>.</p>
+                    <p>Of note, Firefox seems to struggle<br>on this site. Change FPS option<br>if frames are skipping.</p>
+                    <p><a href="https://somenano.com/#donate" target="_new">Like what you see? Your support<br>is appreciated!</a></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    
+
+    <div class="mainbody">
+        <canvas id="canvas" height="400" width="400"></canvas>
+        <script>
+            document.getElementById('canvas').height = window.innerHeight;
+            document.getElementById('canvas').width = window.innerWidth;
+        </script>
+        <div id="stereogram">
+            <img id="magic-eye" width="100%" class="vertical-center horizontal-center" src />
+            <script>document.getElementById('magic-eye').height = window.innerHeight;</script>
+        </div>
+    </div>
+
+    <div id="cps-text">
+        <a href="https://docs.nano.org/glossary/#confirmations-per-second-cps" target="_new">CPS:</a> <span id="cps">Loading...</span>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script defer src="/js/dist/fontawesome.min.js"></script>
+    <script src="/js/dist/magiceye.min.js" type="text/javascript"></script>
+    <script src="/js/dist/TextDepthMapper.js" type="text/javascript"></script>
+    <script src="/js/dist/TemplateDepthMapper.js" type="text/javascript"></script>
+    <script src="/js/dist/CanvasDepthMapper.js" type="text/javascript"></script>
+    
+    <script src="js/repeater.js"></script>
+    <script src="js/index.js"></script>
+
+    <script>
+    </script>
+
+</body>
+
+
+</html>

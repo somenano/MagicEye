@@ -1,0 +1,77 @@
+.container {
+    height: 200px;
+    position: relative;
+    border: 3px solid green;
+  }
+
+  .horizontal-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .mainbody{
+    position: absolute;
+    top: 0px; /* Header Height */
+    bottom: 0px; /* Footer Height */
+    left: 0px;
+    right: 0px;
+    width: 100%;
+}
+
+#menu {
+    z-index: 900;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: white;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#logo {
+    height: 45px;
+}
+
+#cps-text {
+    position: absolute;
+    left: 15px;
+    bottom: 25px;
+}
+
+a:link {
+    color: white;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+a:active {
+    color: white;
+    text-decoration: none;
+}
+
+.additional-option {
+    display: none;
+}
+
+.info-option {
+    display: none;
+}
