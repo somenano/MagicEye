@@ -165,6 +165,20 @@ function toggle_darkmode(force=undefined) {
 if (get_option('darkmode-enabled') != true) toggle_darkmode('disabled');
 else toggle_darkmode('enabled');
 
+function toggle_cps(force=undefined) {
+    if ($('#cps-check').is(':checked') || force == 'enabled') {
+        $('#cps-enabled').text('enabled');
+        $('#cps-check').prop('checked', true);
+        set_option('cps-enabled', true);
+    } else {
+        $('#cps-check').prop('checked', false);
+        $('#cps-enabled').text('disabled');
+        set_option('cps-enabled', false);
+    }
+}
+if (get_option('cps-enabled') != false) toggle_cps('enabled');
+else toggle_cps('disabled');
+
 ///
 
 function update_cps() {
@@ -218,13 +232,15 @@ function update_canvas() {
     }
 
     // Display CPS value
-    let cps = get_cps();
-    let size = (canvas.width / 3 < canvas.height / 2 ? canvas.width / 3 : canvas.height / 2);
-    ctx.font = 'bold '+ size +'px Montserrat';
-    ctx.fillStyle='#000000';
-    ctx.textAlign='center';
-    ctx.textBaseline='middle';
-    ctx.fillText(cps.toFixed(2), canvas.width/2, canvas.height/2);
+    if (get_option('cps-enabled') != false) {
+        let cps = get_cps();
+        let size = (canvas.width / 3 < canvas.height / 2 ? canvas.width / 3 : canvas.height / 2);
+        ctx.font = 'bold '+ size +'px Montserrat';
+        ctx.fillStyle='#000000';
+        ctx.textAlign='center';
+        ctx.textBaseline='middle';
+        ctx.fillText(cps.toFixed(2), canvas.width/2, canvas.height/2);
+    }
 
 }
 

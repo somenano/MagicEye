@@ -72,6 +72,17 @@
                 </td>
             </tr>
             <tr class="additional-option">
+                <td align="center">
+                    <label class="switch">
+                        <input type="checkbox" id="cps-check" onclick="toggle_cps();">
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+                <td>
+                    Display CPS is <span id="cps-enabled">enabled</span>
+                </td>
+            </tr>
+            <tr class="additional-option">
                 <td align="center">&nbsp;</td>
                 <td><a href="#" onclick="dec_fps();"><i class="fas fa-arrow-circle-left"></i></a>&nbsp;<span id="fps">5</span>&nbsp;<a href="#" onclick="inc_fps();"><i class="fas fa-arrow-circle-right"></i></a>&nbsp;Frames per second</td>
             </tr>
